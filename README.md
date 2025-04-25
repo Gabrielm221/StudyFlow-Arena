@@ -7,7 +7,11 @@ StudyFlow Arena is a web application designed to help students organize their st
 Run these commands to install EF Core with PostgreSQL:<br><br>
 
 ```bash
+
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
 dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
 dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+dotnet add package FluentValidation.AspNetCore
+dotnet add package Swashbuckle.AspNetCore
