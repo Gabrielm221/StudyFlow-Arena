@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlow.api/StudyFlow.api.csproj": {}
+    "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/StudyFlow.api.csproj": {}
   },
   "projects": {
-    "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlow.api/StudyFlow.api.csproj": {
+    "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/StudyFlow.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlow.api/StudyFlow.api.csproj",
+        "projectUniqueName": "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/StudyFlow.api.csproj",
         "projectName": "StudyFlow.api",
-        "projectPath": "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlow.api/StudyFlow.api.csproj",
+        "projectPath": "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/StudyFlow.api.csproj",
         "packagesPath": "/home/gabriel/.nuget/packages/",
-        "outputPath": "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlow.api/obj/",
+        "outputPath": "/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/gabriel/.nuget/NuGet/NuGet.Config"
@@ -32,24 +32,41 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.AspNetCOre": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.14, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[8.1.1, )"
             }
           },
           "imports": [
@@ -71,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/256/sdk/8.0.407/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/gabriel/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
