@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StudyFlow.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ff2f1359a7d75497319bb76d938d3b7eedeafb6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+796f7d31aac79ca4bfd9ef52f2ac4020eec1f742")]
 [assembly: System.Reflection.AssemblyProductAttribute("StudyFlow.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StudyFlow.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

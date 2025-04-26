@@ -139,3 +139,11 @@
 /home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/obj/Debug/net8.0/StudyFlow.api.csproj.CopyComplete
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
