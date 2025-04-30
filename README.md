@@ -15,6 +15,8 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 dotnet add package FluentValidation.AspNetCore
 dotnet add package Swashbuckle.AspNetCore
+otnet add package System.IdentityModel.Tokens.Jwt
 dotnet tool install --global dotnet-ef
 dotnet ef migrations add InitialCreate
+
 
