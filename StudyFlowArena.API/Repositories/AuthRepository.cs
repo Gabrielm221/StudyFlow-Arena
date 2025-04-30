@@ -5,14 +5,19 @@ using StudyFlowArena.API.Models;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.IdentityModel.Tokens.Jwt;
+using StudyFlowArena.API.Services;
 
 namespace StudyFlowArena.API.Repositories{
     public class AuthRepository : IAuthRepository{
 
         private readonly AppDbContext _context;
+        private readonly TokenBlackListService _tokenBlackListService;
 
-        public AuthRepository(AppDbContext context){
+        public AuthRepository(AppDbContext context, TokenBlackListService token){
             _context = context;
+            _tokenBlackListService = token;
+
         }
 
         public async Task<User> Register(User user, string password){
@@ -46,6 +51,23 @@ namespace StudyFlowArena.API.Repositories{
             return await _context.Users.AnyAsync(x => x.Email == email);
         }
 
-    
+        public async Task<bool> Logout(string token)
+        {
+            // Call the service off blacklist, to add in blacklist
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            try
+            {
+                var jwtToken = jwtTokenHandler.ReadJwtToken(token);
+                
+                // If token valid, block in blacklist
+                _tokenBlackListService.BlackListToken(token, jwtToken.ValidTo);
+                return true;
+            }
+            catch
+            {
+                // If error, return token
+                return false;
+            }
+        } 
     }
 }

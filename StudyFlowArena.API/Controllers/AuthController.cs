@@ -1,8 +1,12 @@
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Mvc;
 using StudyFlowArena.API.DTOs;
 using StudyFlowArena.API.Interfaces;
 using StudyFlowArena.API.Models;
 using StudyFlowArena.API.Services;
+using System.Text;
+
 
 namespace StudyFlowArena.API.Controllers{
     [ApiController]
@@ -13,9 +17,12 @@ namespace StudyFlowArena.API.Controllers{
         private readonly IAuthRepository _authRepository;
         public readonly TokenService _tokenService;
 
-        public AuthController(IAuthRepository authRepository, TokenService tokenService){
+        public readonly TokenBlackListService _tokenBlackListService;
+
+        public AuthController(IAuthRepository authRepository, TokenService tokenService, TokenBlackListService tokenBlackListService){
             _authRepository = authRepository;
             _tokenService = tokenService;
+            _tokenBlackListService = tokenBlackListService;
         }
 
         [HttpPost("register")]
@@ -47,5 +54,50 @@ namespace StudyFlowArena.API.Controllers{
 
             return Ok(new {Token = token});
         }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            // Extract Token from Authorization Header
+            var token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+
+            if (string.IsNullOrEmpty(token))
+                return BadRequest("No token found in the request");
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            try
+            {
+                // Token validation params
+                var validationParams = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = false, 
+
+                    ValidIssuer = _tokenService.Issuer,
+                    ValidAudience = _tokenService.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenService.Secret))
+                };
+
+                // Token validation
+                tokenHandler.ValidateToken(token, validationParams, out _);
+            }
+            catch
+            {
+                return BadRequest("Invalid token format");
+            }
+
+            // Read the token, and get the explanation
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+            var expiry = jwtToken.ValidTo;
+
+            // Add token to blacklist
+            _tokenBlackListService.BlackListToken(token, expiry);
+
+            return Ok(new { message = "Logged out successfully. Token blacklisted." });
+        }
+
     }
 }

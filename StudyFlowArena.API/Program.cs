@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<TokenBlackListService>();
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -38,6 +40,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = jwtSettings["Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["SecretKey"]))
         };
+        
+        options.Events = new JwtBearerEvents
+        {   
+            OnTokenValidated = context =>
+            {
+                var tokenService = context.HttpContext.RequestServices.GetRequiredService<TokenBlackListService>();
+                var token = context.SecurityToken as JwtSecurityToken;
+
+                if (token != null && tokenService.IsTokenBlacklisted(token.RawData))
+                {
+                    context.Fail("This token has been blacklisted.");
+                }
+
+                return Task.CompletedTask;
+            }
+        };    
     });
 
 var app = builder.Build();

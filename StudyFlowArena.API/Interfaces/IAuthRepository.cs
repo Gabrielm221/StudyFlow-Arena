@@ -5,6 +5,7 @@ namespace StudyFlowArena.API.Interfaces{
     public interface IAuthRepository {
         Task<User> Register(User user, string password);
         Task<User> Login(string email, string password);
+        Task<bool> Logout(string token);
         Task<bool> UserExists(string email);
         
     }

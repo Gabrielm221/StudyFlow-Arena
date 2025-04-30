@@ -147,3 +147,4 @@
 /home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
 /home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll
+/home/gabriel/Desktop/Projects/StudyFlow-Arena/StudyFlowArena.API/bin/Debug/net8.0/Microsoft.Bcl.Memory.dll
